@@ -24,7 +24,6 @@ public class GreedySchedulingDifferenceTest {
 		jobs[3] = new JobDifferenceCost(30, 50);
 		jobs[4] = new JobDifferenceCost(20, 60);
 		jobs[5] = new JobDifferenceCost(10, 50);
-	//ff
 		GreedySchedulingDifference.scheduleJobs(jobs);
 		assertEquals(GreedySchedulingDifference.calculateCosts(jobs),20000);
 	}

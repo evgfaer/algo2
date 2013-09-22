@@ -1,6 +1,8 @@
-package algo2.first.algos;
+package org.coursera.assignment.first;
 
-import algo2.first.entities.Job;
+import org.coursera.assignment.first.entities.Job;
+
+
 
 public class GreedySchedulingDifference {
 	

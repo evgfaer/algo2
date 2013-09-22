@@ -1,4 +1,4 @@
-package algo2.first.entities;
+package org.coursera.assignment.first.entities;
 
 public class JobDifferenceCost extends Job {
 

@@ -1,4 +1,4 @@
-package test.algo2.first.algos;
+package org.coursera.assignment.first;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,12 +6,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import org.coursera.assignment.first.GreedySchedulingDifference;
+import org.coursera.assignment.first.entities.Job;
+import org.coursera.assignment.first.entities.JobDifferenceCost;
+import org.coursera.assignment.first.entities.JobRatioCost;
 import org.junit.Test;
-
-import algo2.first.algos.GreedySchedulingDifference;
-import algo2.first.entities.Job;
-import algo2.first.entities.JobDifferenceCost;
-import algo2.first.entities.JobRatioCost;
 
 public class GreedySchedulingDifferenceTest {
 
@@ -42,7 +41,7 @@ public class GreedySchedulingDifferenceTest {
 	}
 	@Test
 	public void testOriginalJobDifferenceCost() throws Exception {
-		BufferedReader reader = new BufferedReader(new FileReader(new File("src/main/resources/jobs.txt")));
+		BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/jobs.txt")));
 		String currentLine = reader.readLine();
 		int numberOfJobs=new Integer(currentLine);
 		JobDifferenceCost[] jobs = new JobDifferenceCost[numberOfJobs];
@@ -59,7 +58,7 @@ public class GreedySchedulingDifferenceTest {
 	
 	@Test
 	public void testOriginalJobRationCost() throws Exception {
-		BufferedReader reader = new BufferedReader(new FileReader(new File("src/main/resources/jobs.txt")));
+		BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/jobs.txt")));
 		String currentLine = reader.readLine();
 		int numberOfJobs=new Integer(currentLine);
 		Job[] jobs = new JobRatioCost[numberOfJobs];

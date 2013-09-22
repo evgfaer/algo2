@@ -1,6 +1,6 @@
 package org.coursera.assignment.first.entities;
 
-public abstract class Job {
+public abstract class Job implements Comparable<Job> {
 
 	private int weight;
 	private int length;
@@ -28,4 +28,13 @@ public abstract class Job {
 	}
 
 	public abstract double getCosts();
+
+	public int compareTo(Job o) {
+		int comparisonResult = Double.valueOf(this.getCosts()).compareTo(
+				o.getCosts());
+		if (comparisonResult == 0) {
+			return Integer.valueOf(this.getWeight()).compareTo(o.getWeight());
+		}
+		return comparisonResult;
+	}
 }

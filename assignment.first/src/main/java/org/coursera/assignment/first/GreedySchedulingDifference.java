@@ -22,17 +22,10 @@ public class GreedySchedulingDifference {
 		boolean bubbleSortChangedSomething = true;
 		while (bubbleSortChangedSomething) {
 			bubbleSortChangedSomething = false;
-			for (int i = 0; i < jobsToSchedule.length; i++) {
-				if (i < jobsToSchedule.length - 1) {
-					if (jobsToSchedule[i].getCosts() < jobsToSchedule[i + 1]
-							.getCosts()
-							|| (jobsToSchedule[i].getCosts() == jobsToSchedule[i + 1]
-									.getCosts() && jobsToSchedule[i]
-									.getWeight() < jobsToSchedule[i + 1]
-									.getWeight())) {
+			for (int i = 0; i < jobsToSchedule.length-1; i++) {
+					if (jobsToSchedule[i].compareTo(jobsToSchedule[i + 1])==-1) {
 						swap(jobsToSchedule, i, i + 1);
 						bubbleSortChangedSomething = true;
-					}
 				}
 			}
 		}

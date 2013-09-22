@@ -1,4 +1,4 @@
-package org.coursera.assignment.first.entities;
+package org.coursera.assignment.first.jobs.entities;
 
 public abstract class Job implements Comparable<Job> {
 

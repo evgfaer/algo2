@@ -1,4 +1,4 @@
-package org.coursera.assignment.first.entities;
+package org.coursera.assignment.first.jobs.entities;
 
 public class JobRatioCost extends Job {
 

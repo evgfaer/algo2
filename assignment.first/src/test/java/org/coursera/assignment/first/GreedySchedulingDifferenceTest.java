@@ -6,10 +6,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import org.coursera.assignment.first.GreedySchedulingDifference;
-import org.coursera.assignment.first.entities.Job;
-import org.coursera.assignment.first.entities.JobDifferenceCost;
-import org.coursera.assignment.first.entities.JobRatioCost;
+import org.coursera.assignment.first.jobs.GreedySchedulingDifference;
+import org.coursera.assignment.first.jobs.entities.Job;
+import org.coursera.assignment.first.jobs.entities.JobDifferenceCost;
+import org.coursera.assignment.first.jobs.entities.JobRatioCost;
 import org.junit.Test;
 
 public class GreedySchedulingDifferenceTest {

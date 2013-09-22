@@ -1,9 +1,9 @@
-package org.coursera.assignment.first;
+package org.coursera.assignment.first.jobs;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.coursera.assignment.first.entities.Job;
+import org.coursera.assignment.first.jobs.entities.Job;
 
 public class GreedySchedulingDifference {
 

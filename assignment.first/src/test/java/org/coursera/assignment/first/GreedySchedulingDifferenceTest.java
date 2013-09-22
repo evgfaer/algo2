@@ -14,6 +14,8 @@ import org.junit.Test;
 
 public class GreedySchedulingDifferenceTest {
 
+	private static String jobsPath = "src/test/resources/jobs.txt";
+
 	@Test
 	public void testDifference() {
 		Job[] jobs = new Job[6];
@@ -24,9 +26,9 @@ public class GreedySchedulingDifferenceTest {
 		jobs[4] = new JobDifferenceCost(20, 60);
 		jobs[5] = new JobDifferenceCost(10, 50);
 		GreedySchedulingDifference.scheduleJobs(jobs);
-		assertEquals(GreedySchedulingDifference.calculateCosts(jobs),20000);
+		assertEquals(GreedySchedulingDifference.calculateCosts(jobs), 20000);
 	}
-	
+
 	@Test
 	public void testRatio() {
 		Job[] jobs = new Job[6];
@@ -37,40 +39,56 @@ public class GreedySchedulingDifferenceTest {
 		jobs[4] = new JobRatioCost(20, 60);
 		jobs[5] = new JobRatioCost(10, 50);
 		GreedySchedulingDifference.scheduleJobs(jobs);
-		assertEquals(GreedySchedulingDifference.calculateCosts(jobs),19400);
+		assertEquals(GreedySchedulingDifference.calculateCosts(jobs), 19400);
 	}
+
 	@Test
 	public void testOriginalJobDifferenceCost() throws Exception {
-		BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/jobs.txt")));
-		String currentLine = reader.readLine();
-		int numberOfJobs=new Integer(currentLine);
-		JobDifferenceCost[] jobs = new JobDifferenceCost[numberOfJobs];
-		int i=0;
-		while((currentLine=reader.readLine())!=null)
-		{
-			String[] jobData = currentLine.split(" ");
-			jobs[i]=new JobDifferenceCost(new Integer(jobData[0]),new Integer(jobData[1]));
-			i++;
+
+		BufferedReader reader = new BufferedReader(new FileReader(new File(
+				jobsPath)));
+		try {
+			String currentLine = reader.readLine();
+			int numberOfJobs = new Integer(currentLine);
+			JobDifferenceCost[] jobs = new JobDifferenceCost[numberOfJobs];
+			int i = 0;
+			while ((currentLine = reader.readLine()) != null) {
+				String[] jobData = currentLine.split(" ");
+				jobs[i] = new JobDifferenceCost(new Integer(jobData[0]),
+						new Integer(jobData[1]));
+				i++;
+			}
+			GreedySchedulingDifference.scheduleJobs(jobs);
+			System.out.println("difference: "
+					+ GreedySchedulingDifference.calculateCosts(jobs));
+		} finally {
+			reader.close();
 		}
-		GreedySchedulingDifference.scheduleJobs(jobs);
-		System.out.println("difference: "+GreedySchedulingDifference.calculateCosts(jobs));
+
 	}
-	
+
 	@Test
 	public void testOriginalJobRationCost() throws Exception {
-		BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/jobs.txt")));
-		String currentLine = reader.readLine();
-		int numberOfJobs=new Integer(currentLine);
-		Job[] jobs = new JobRatioCost[numberOfJobs];
-		int i=0;
-		while((currentLine=reader.readLine())!=null)
-		{
-			String[] jobData = currentLine.split(" ");
-			jobs[i]=new JobRatioCost(new Integer(jobData[0]),new Integer(jobData[1]));
-			i++;
+		BufferedReader reader = new BufferedReader(new FileReader(new File(
+				jobsPath)));
+		try {
+			String currentLine = reader.readLine();
+			int numberOfJobs = new Integer(currentLine);
+			Job[] jobs = new JobRatioCost[numberOfJobs];
+			int i = 0;
+			while ((currentLine = reader.readLine()) != null) {
+				String[] jobData = currentLine.split(" ");
+				jobs[i] = new JobRatioCost(new Integer(jobData[0]),
+						new Integer(jobData[1]));
+				i++;
+			}
+			GreedySchedulingDifference.scheduleJobs(jobs);
+
+			System.out.println("Ratio: "
+					+ GreedySchedulingDifference.calculateCosts(jobs));
+		} finally {
+			reader.close();
 		}
-		GreedySchedulingDifference.scheduleJobs(jobs);
-		System.out.println("Ratio: "+GreedySchedulingDifference.calculateCosts(jobs));
 	}
 
 }
